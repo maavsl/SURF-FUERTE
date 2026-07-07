@@ -1,0 +1,537 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #edf3f6;
+  color: #0f2430;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 250px;
+  background: #063244;
+  color: white;
+  padding: 24px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  margin-bottom: 28px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.sidebar h3 {
+  color: #44c7df;
+  margin-top: 28px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.sidebar button,
+.sidebar label {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.sport {
+  border: 0;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: left;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sport.active {
+  background: #1687a7;
+}
+
+/* LAYOUT */
+
+.app {
+  margin-left: 250px;
+}
+
+.topbar {
+  height: 66px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.08);
+}
+
+.topbar button {
+  border: 0;
+  background: transparent;
+  padding: 22px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.topbar button.active {
+  color: #1687a7;
+  border-bottom: 3px solid #1687a7;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(520px, 1.2fr) minmax(440px, .9fr);
+  gap: 12px;
+  padding: 12px;
+}
+
+.map-panel,
+.detail-panel {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* MAPA LEAFLET */
+
+#map {
+  height: 560px;
+  width: 100%;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  background: #b9d6d4;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+#map .leaflet-tile {
+  width: 256px !important;
+  height: 256px !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  object-fit: initial !important;
+}
+
+.custom-leaflet-icon {
+  background: transparent;
+  border: 0;
+}
+
+.leaflet-spot-marker {
+  width: 44px;
+  height: 44px;
+  border: 3px solid white;
+  border-radius: 999px;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.28);
+}
+
+.leaflet-spot-marker.selected {
+  transform: scale(1.18);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+}
+
+.leaflet-tooltip {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+
+/* TARJETAS */
+
+.map-panel h2 {
+  padding: 20px 24px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.spot-cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 14px 20px 20px;
+}
+
+.spot-card {
+  border: 1px solid #d8e2e8;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: white;
+}
+
+.spot-card.active {
+  outline: 3px solid #1687a7;
+}
+
+.card-image {
+  height: 78px;
+  position: relative;
+  background: linear-gradient(135deg, #b9e0ed, #ffffff);
+}
+
+.card-image img,
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.card-body p {
+  margin: 4px 0 6px;
+  font-size: 12px;
+}
+
+.mini-data {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+}
+
+.status {
+  margin-top: 8px !important;
+  font-size: 12px;
+  font-weight: 700;
+  background: transparent;
+}
+
+/* SCORE */
+
+.score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-weight: 900;
+}
+
+.score.big {
+  min-width: 58px;
+  min-height: 50px;
+  font-size: 22px;
+  border-radius: 14px;
+}
+
+.card-image .score {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 34px;
+  padding: 4px 7px;
+  font-size: 13px;
+}
+
+.good {
+  background: #1fb15f;
+  color: white;
+}
+
+.ok {
+  background: #f1bd36;
+  color: #17232b;
+}
+
+.bad {
+  background: #d64545;
+  color: white;
+}
+
+/* PANEL DERECHO */
+
+.hero {
+  position: relative;
+  height: 280px;
+  color: white;
+}
+
+.hero.detail-hero {
+  height: 330px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.08));
+}
+
+.hero-content {
+  position: absolute;
+  inset: 24px;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.hero-score-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.hero-score-row div span {
+  display: block;
+  opacity: .9;
+  font-size: 13px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #d8e2e8;
+}
+
+.tabs button {
+  flex: 1;
+  border: 0;
+  background: white;
+  padding: 16px 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  color: #1687a7;
+  border-bottom: 3px solid #1687a7;
+}
+
+.quick-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 18px;
+  background: #f6fbfd;
+  border-bottom: 1px solid #e3eaee;
+}
+
+.quick-summary div,
+.info-grid div {
+  background: white;
+  border: 1px solid #dbe5eb;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.quick-summary span {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #567;
+  margin-bottom: 6px;
+}
+
+.quick-summary strong {
+  font-size: 20px;
+}
+
+.panel-section {
+  padding: 22px;
+  border-bottom: 1px solid #e3eaee;
+}
+
+.panel-section h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eef6f8;
+  border: 1px solid #d8e8ee;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.chips.danger span {
+  background: #fff4ed;
+  border-color: #f3c9ad;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 18px;
+}
+
+.maps-button,
+.ghost-button {
+  border: 1px solid #d8e8ee;
+  border-radius: 10px;
+  padding: 16px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.maps-button {
+  background: #1687a7;
+  color: white;
+  text-decoration: none;
+}
+
+.ghost-button {
+  background: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1400px) {
+  .spot-cards {
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+  }
+
+  .info-grid,
+  .quick-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .logo {
+    margin-bottom: 16px;
+  }
+
+  .app {
+    margin-left: 0;
+  }
+
+  .topbar {
+    height: 48px;
+    padding: 0 16px;
+  }
+
+  .layout {
+    display: block;
+    padding: 8px;
+  }
+
+  #map {
+    height: 360px;
+  }
+
+  .map-panel,
+  .detail-panel {
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .spot-cards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
+  }
+
+  .detail-panel {
+    overflow: visible;
+  }
+
+  .hero.detail-hero {
+    height: 240px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .quick-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .spot-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .quick-summary,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar button,
+  .sidebar label {
+    font-size: 14px;
+  }
+}

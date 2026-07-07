@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Surf Fuerteventura</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <div class="logo">🌊 SURF FUERTE</div>
+
+    <div class="search-box">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="🔍 Buscar spot..."
+      >
+    </div>
+
+    <h3>Deporte</h3>
+    <button class="sport active" data-sport="all">Todos</button>
+    <button class="sport" data-sport="Surf">Surf</button>
+    <button class="sport" data-sport="Kitesurf">Kitesurf</button>
+    <button class="sport" data-sport="Windsurf">Windsurf</button>
+    <button class="sport" data-sport="Wingfoil">Wingfoil</button>
+
+    <h3>Nivel</h3>
+    <label><input class="level-filter" type="checkbox" value="Principiante" checked> Principiante</label>
+    <label><input class="level-filter" type="checkbox" value="Intermedio" checked> Intermedio</label>
+    <label><input class="level-filter" type="checkbox" value="Avanzado" checked> Avanzado</label>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+
+
+<div id="topWeather" class="weather">☀️ --ºC · 🌊 --ºC</div>    </header>
+
+    <section class="layout">
+      <div class="map-panel">
+        <div id="map"></div>
+
+        <h2 id="spotsTitle">Mejores spots hoy</h2>
+        <div id="spotCards" class="spot-cards"></div>
+      </div>
+
+      <aside id="spotDetail" class="detail-panel"></aside>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="spots.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
