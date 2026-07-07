@@ -535,3 +535,31 @@ body {
     font-size: 14px;
   }
 }
+@media (max-width: 900px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-panel {
+    width: 100%;
+    order: 1;
+  }
+
+  .detail-panel {
+    width: 100%;
+    order: 2;
+  }
+
+  .spot-cards {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .spot-card {
+    display: block !important;
+  }
+}
