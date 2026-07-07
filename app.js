@@ -28,7 +28,7 @@ function c(spot) { return spot.conditions; }
 function i(spot) { return spot.info; }
 function m(spot) { return spot.media; }
 function l(spot) { return spot.location; }
-function spotName(spot) { return spot.name.es; }
+function spotName(spot) { return spot.name[lang] || spot.name.es; }
 
 function getScoreClass(score) {
   if (score >= 8) return "good";
@@ -193,7 +193,7 @@ function renderDetail() {
     </section>
 
     <section class="panel-section">
-      <h2>Lectura rápida</h2>
+     <h2>${t("quickRead")}</h2>
       <div class="info-grid">
         <div><strong>🏄 Mejor para</strong><br>${selectedSpot.sports.join(" · ")}</div>
         <div><strong>🎯 Nivel</strong><br>${i(selectedSpot).level || "-"}</div>
@@ -426,8 +426,8 @@ function getSurfSummary(conditions, scoring) {
 function renderApp(shouldFitMap = true) {
   spotsTitle.textContent =
     activeSport === "all"
-      ? "Mejores spots hoy"
-      : `Mejores spots para ${activeSport}`;
+? t("bestSpotsToday")
+: `${t("bestSpotsFor")} ${activeSport}`;
 
   const filtered = getFilteredSpots();
 

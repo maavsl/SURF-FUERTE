@@ -43,8 +43,16 @@
   <main class="app">
     <header class="topbar">
 
+  <div class="lang-switch">
+    <button onclick="setLang('es')">🇪🇸</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+  </div>
 
-<div id="topWeather" class="weather">☀️ --ºC · 🌊 --ºC</div>    </header>
+  <div id="topWeather" class="weather">
+    ☀️ --ºC · 🌊 --ºC
+  </div>
+
+</header>
 
     <section class="layout">
       <div class="map-panel">
@@ -58,9 +66,10 @@
     </section>
   </main>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="spots.js"></script>
-  <script src="app.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="i18n.js"></script>
+<script src="spots.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>

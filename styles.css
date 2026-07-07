@@ -563,3 +563,25 @@ body {
     display: block !important;
   }
 }
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.lang-switch{
+    display:flex;
+    gap:8px;
+}
+
+.lang-switch button{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:22px;
+    transition:.2s;
+}
+
+.lang-switch button:hover{
+    transform:scale(1.15);
+}
